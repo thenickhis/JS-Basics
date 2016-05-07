@@ -71,15 +71,17 @@ var makeCounter = function() {
 // You will need to use the module pattern to achieve this.
 
 function counterFactory(value) {
+  
+  function inc(value) {
+    return value += 1;
+  }
+
+  function dec(value) {
+    return value -= 1;
+  }
+
   return {
-    // Code inc function
-    inc:function(value) {
-      return value += 1;
-    },
-    // Code dec function
-    reset:function(value) {
-      return value -= 1;
-    }
+    inc: inc(value), dec: dec(value)
   }
 }
 
@@ -96,7 +98,7 @@ counter = counterFactory(10);
 
   function motivation(firstname, lastname){
 
-    var welcomeText = 'Your doing awesome keep it up    ';
+    var welcomeText = "You're doing awesome keep it up    ";
 
     // code message function here
 
