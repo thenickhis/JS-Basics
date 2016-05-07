@@ -10,11 +10,11 @@ var outer = function(){
 // Invoke outer saving the return value into another variable called 'inner'.
 
   //Code Here
-
+var inner = outer();
 //Once you do that, invoke inner.
 
   //Code Here
-
+inner();
 
 
 //////////////////PROBLEM 2////////////////////
@@ -33,8 +33,9 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //Code Here
+var dial = callFriend();
 
-
+dial("435-215-9248");
 
 //////////////////PROBLEM 3////////////////////
 
@@ -43,14 +44,20 @@ var callFriend = function(){
 /*
   Write a function called makeCounter that makes the following code work properly.
 */  //Code Here
-  
+var makeCounter = function() {
+  var counter = 0;
+  return function add() {
+    return counter += 1;
+  }
+  return add;
+};
   
 //Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+   var count = makeCounter();
+   count(); // 1
+   count(); // 2
+   count(); // 3
+   count(); // 4
 
 
 
@@ -64,11 +71,16 @@ var callFriend = function(){
 // You will need to use the module pattern to achieve this.
 
 function counterFactory(value) {
-  return {}
-
+  return {
     // Code inc function
+    inc:function(value) {
+      return value += 1;
+    },
     // Code dec function
-
+    reset:function(value) {
+      return value -= 1;
+    }
+  }
 }
 
 
